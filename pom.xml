@@ -29,15 +29,23 @@
 
 	<developers>
 		<developer>
-			<name>Ayoub Errabi</name>
+			<name>Mohamed Amine Errabi</name>
+			<organization>https://github.com/Amine-er</organization>
+		</developer>
+		<developer>
+			<name>Hajar Ouagar</name>
 			<organization>https://github.com/e2rabi/</organization>
 		</developer>
 		<developer>
-			<name>Ayoub Errabi</name>
+			<name>Anouar Fahmi</name>
 			<organization>https://github.com/e2rabi/</organization>
 		</developer>
 		<developer>
-			<name>Ayoub Errabi</name>
+			<name>Aziz Tajeddine</name>
+			<organization>https://github.com/e2rabi/</organization>
+		</developer>
+		<developer>
+			<name>Coullibaly Prince Baba Daouda </name>
 			<organization>https://github.com/e2rabi/</organization>
 		</developer>
 	</developers>
@@ -46,6 +54,7 @@
 		<module>wellmart-app</module>
 		<module>wellmart-ui</module>
 		<module>wellmart-mobile</module>
+		<module>wellmart-payment-simulator</module>
 	</modules>
 
 	<dependencies>

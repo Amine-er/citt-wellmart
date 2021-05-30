@@ -1,3 +1,11 @@
 
 application-version: @project.version@
 application-name: @project.name@
+
+
+spring:
+  jpa:
+    show-sql : true
+    properties:
+      hibernate:
+        format_sql: true

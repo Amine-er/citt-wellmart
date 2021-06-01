@@ -1,0 +1,7 @@
+::ng-deep .sidebar .logo-img img{
+    width: 92px !important;
+    top: 8px !important;
+    position: absolute;
+    height: 49px;
+    left: 2px;
+}

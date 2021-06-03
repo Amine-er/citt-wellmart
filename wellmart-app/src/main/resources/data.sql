@@ -1,0 +1,1 @@
+INSERT INTO COUNTRY values(1,'Casablanca');

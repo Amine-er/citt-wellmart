@@ -17,7 +17,5 @@ public class CityService {
         return cityRepository.findAll();
     }
 
-    public void deleteCityById(Long id){
-        cityRepository.deleteById(id);
-    }
+    public void deleteCityById(Long id){ cityRepository.deleteById(id); }
 }

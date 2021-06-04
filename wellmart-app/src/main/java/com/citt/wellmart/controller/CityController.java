@@ -20,6 +20,7 @@ public class CityController {
     public List<City> getAllCity(){
         return cityService.getAllCity();
     }
+
     @DeleteMapping("/{id}")
     public void deleteCityById(@PathVariable Long id){ cityService.deleteCityById(id); }
 }

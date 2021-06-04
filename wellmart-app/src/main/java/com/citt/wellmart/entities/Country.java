@@ -1,5 +1,6 @@
 package com.citt.wellmart.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id ;
     private String name ;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "country")
     List<City>  cities ;
 

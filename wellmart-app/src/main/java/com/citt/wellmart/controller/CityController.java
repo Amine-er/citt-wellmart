@@ -23,5 +23,5 @@ public class CityController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCityById(@PathVariable Long id){ cityService.deleteCityById(id); }
+    public void deleteCityById(@PathVariable(name = "id") Long id){ cityService.deleteCityById(id); }
 }

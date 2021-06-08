@@ -25,7 +25,7 @@ public class CountryController {
         return countryService.getAllCountry();
     }
     @DeleteMapping("/{id}")
-    public void deleteCountryById(@PathVariable Long id){
+    public void deleteCountryById(@PathVariable(name = "id") Long id){
         countryService.deleteCountryById(id);
     }
 

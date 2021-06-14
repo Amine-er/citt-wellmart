@@ -2,6 +2,7 @@ INSERT INTO COUNTRY values(1,'Maroc');
 
 INSERT INTO CATEGORY values(1, 'Chicken Burgers', 'KFC');
 
+
 INSERT INTO CITY values(1,'Afourar', 1);
 INSERT INTO CITY values(2,'Agadir', 1);
 INSERT INTO CITY values(3,'Al Hoceïma', 1);

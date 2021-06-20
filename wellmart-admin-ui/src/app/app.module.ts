@@ -6,22 +6,19 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
+import { ComponentsModule } from './shared/components/components.module';
 
 import { AppComponent } from './app.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TableListComponent } from './table-list/table-list.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MerchantComponent } from './components/merchant/merchant.component';
+import { ReferencesComponent } from './components/references/references.component';
+import { MapsComponent } from './components/dashboard/maps/maps.component';
+import { NotificationsComponent } from './components/dashboard/notifications/notifications.component';
 import {
   AgmCoreModule
 } from '@agm/core';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AdminLayoutComponent } from './shared/layouts/admin-layout/admin-layout.component';
 import { MaterialModule } from './material.module';
 import {MatPaginatorModule} from '@angular/material/paginator';
 

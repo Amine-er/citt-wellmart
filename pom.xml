@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,27 +25,23 @@
 		<jaxb.version>2.3.0</jaxb.version>
 		<project.scm.id>github</project.scm.id>
 		<commons-lang.version>3.11</commons-lang.version>
+		<commons-lang.version>3.11</commons-lang.version>
+		<guava.version>30.0-jre</guava.version>
+		<jwt.version>0.9.1</jwt.version>
+		<joda-time.version>2.10.8</joda-time.version>
 	</properties>
 
 	<developers>
 		<developer>
-			<name>Mohamed Amine Errabi</name>
-			<organization>https://github.com/Amine-er</organization>
-		</developer>
-		<developer>
-			<name>Hajar Ouagar</name>
+			<name>Ayoub Errabi</name>
 			<organization>https://github.com/e2rabi/</organization>
 		</developer>
 		<developer>
-			<name>Anouar Fahmi</name>
+			<name>Ayoub Errabi</name>
 			<organization>https://github.com/e2rabi/</organization>
 		</developer>
 		<developer>
-			<name>Aziz Tajeddine</name>
-			<organization>https://github.com/e2rabi/</organization>
-		</developer>
-		<developer>
-			<name>Coullibaly Prince Baba Daouda </name>
+			<name>Ayoub Errabi</name>
 			<organization>https://github.com/e2rabi/</organization>
 		</developer>
 	</developers>
@@ -136,6 +132,37 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Utils -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jwt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+		<!-- Security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

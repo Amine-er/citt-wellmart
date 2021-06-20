@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { City } from "app/models/city";
-import { Country } from "app/models/country";
+import { City } from "app/shared/models/city";
+import { Country } from "app/shared/models/country";
 import { Observable } from "rxjs";
 import { MainConfigService } from "./main-config.service";
 

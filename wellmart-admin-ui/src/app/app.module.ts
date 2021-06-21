@@ -21,6 +21,7 @@ import {
 import { AdminLayoutComponent } from './shared/layouts/admin-layout/admin-layout.component';
 import { MaterialModule } from './material.module';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { LoginComponent } from './components/user/login/login.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
 
   ],
   schemas: [

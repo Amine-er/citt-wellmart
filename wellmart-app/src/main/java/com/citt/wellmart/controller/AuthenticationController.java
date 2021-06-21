@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import static lombok.AccessLevel.PACKAGE;
 import static lombok.AccessLevel.PRIVATE;
 
+@CrossOrigin("*")
 @Slf4j
 @RestController
 @Tag(name = "Authentication Management")

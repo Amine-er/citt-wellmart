@@ -5,6 +5,7 @@ import { MerchantComponent } from '../../../components/merchant/merchant.compone
 import { ReferencesComponent } from '../../../components/references/references.component';
 import { MapsComponent } from '../../../components/dashboard/maps/maps.component';
 import { NotificationsComponent } from '../../../components/dashboard/notifications/notifications.component';
+import { LoginComponent } from 'app/components/user/login/login.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -53,5 +54,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'merchants',   component: MerchantComponent },
     { path: 'references',     component: ReferencesComponent },
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
+    { path: 'notifications', component: NotificationsComponent },
+    { path: 'login',component: LoginComponent}
 ];

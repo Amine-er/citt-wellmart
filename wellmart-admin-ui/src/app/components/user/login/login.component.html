@@ -1,0 +1,29 @@
+  <div class="wrapper">
+    <form class="form-signin" [formGroup]="userForm" novalidate>       
+      <h2 class="form-signin-heading">Wellmart login</h2>
+      <div>
+      <input type="text" class="form-control" name="username" placeholder="Username" formControlName="username" required="" autofocus="" />
+      </div>
+      <div class="input-password">
+      <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password" required=""/>      
+      </div>
+      <div class="btn-login">
+      <button (click)="login()" [disabled]="!userForm.valid" class="btn btn-lg btn-warning btn-block" type="submit">Login</button>   
+      </div>
+
+        <div *ngIf="userForm.controls['username'].invalid && (userForm.controls['username'].dirty || userForm.controls['username'].touched)" class="invalid-input">
+            <div *ngIf="userForm.controls['username'].errors.required">
+            Username is required.
+          </div>
+        </div>
+
+        <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)" class="invalid-input">
+            <div *ngIf="userForm.controls['password'].errors.required">
+            Password is required.
+          </div>
+        </div>
+        <div class="invalid-input" *ngIf="displayError">
+                Username or password incorrect !
+        </div>
+    </form>
+  </div>

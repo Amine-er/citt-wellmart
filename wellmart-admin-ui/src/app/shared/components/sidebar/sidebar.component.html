@@ -1,3 +1,4 @@
+<div *ngIf="permissionsService.getPermission('get_references')!=undefined">
 <div class="logo">
     <a href="www.localhost:4200" class="simple-text">
         <div class="logo-img">
@@ -6,7 +7,7 @@
         <span style="margin-left: 34px;">Wellmart</span>
     </a>
 </div>
-<div class="sidebar-wrapper">
+<div class="sidebar-wrapper" >
   <div *ngIf="isMobileMenu()">
     <form class="navbar-form">
       <span class="bmd-form-group">
@@ -62,4 +63,6 @@
             </a>
         </li>
     </ul>
+</div>
+
 </div>

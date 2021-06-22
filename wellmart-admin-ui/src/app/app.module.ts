@@ -22,6 +22,7 @@ import { AdminLayoutComponent } from './shared/layouts/admin-layout/admin-layout
 import { MaterialModule } from './material.module';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LoginComponent } from './components/user/login/login.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { LoginComponent } from './components/user/login/login.component';
     RouterModule,
     AppRoutingModule,
     MaterialModule,
+     NgxPermissionsModule.forRoot()
   ],
   declarations: [
     AppComponent,

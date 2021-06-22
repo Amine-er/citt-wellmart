@@ -6,13 +6,16 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatTableModule} from '@angular/material/table';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    MatTableModule
+    MatTableModule,
+     NgxPermissionsModule.forChild()
+
   ],
   declarations: [
     FooterComponent,

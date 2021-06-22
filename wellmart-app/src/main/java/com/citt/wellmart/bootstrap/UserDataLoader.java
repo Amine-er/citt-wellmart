@@ -35,18 +35,24 @@ public class UserDataLoader implements CommandLineRunner {
     @Transactional
     private void loadUser() {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        Authority createUser = authorityRepository.save(Authority.builder().permission("write_user").build());
-        Authority deleteUser = authorityRepository.save(Authority.builder().permission("delete_user").build());
-        Authority addProduct = authorityRepository.save(Authority.builder().permission("add_product").build());
-        Authority readUser   = authorityRepository.save(Authority.builder().permission("delete_product").build());
+        Authority createMerchant = authorityRepository.save(Authority.builder().permission("create_merchant").build());
+        Authority createCategory = authorityRepository.save(Authority.builder().permission("create_category").build());
+        Authority createProduct = authorityRepository.save(Authority.builder().permission("create_product").build());
+        Authority createReference   = authorityRepository.save(Authority.builder().permission("create_references").build());
+        Authority getMerchant   = authorityRepository.save(Authority.builder().permission("get_merchant").build());
+        Authority getReference   = authorityRepository.save(Authority.builder().permission("get_references").build());
+        Authority getProduct   = authorityRepository.save(Authority.builder().permission("get_product").build());
+        Authority getCategory   = authorityRepository.save(Authority.builder().permission("get_category").build());
+        Authority getOrders   = authorityRepository.save(Authority.builder().permission("get_orders").build());
+
 
         Role adminRole = roleRepository.save(Role.builder().name("ADMIN").build());
         Role merchantRole = roleRepository.save(Role.builder().name("MERCHANT").build());
         Role guestRole = roleRepository.save(Role.builder().name("GUEST").build());
 
-        adminRole.setAuthorities(Set.of(createUser,addProduct,deleteUser,readUser));
-        merchantRole.setAuthorities(Set.of(addProduct,readUser));
-        guestRole.setAuthorities(Set.of(readUser));
+        adminRole.setAuthorities(Set.of(createMerchant,createCategory,createProduct,createReference,getMerchant,getReference,getProduct,getCategory,getOrders));
+        merchantRole.setAuthorities(Set.of(createCategory,createProduct,getMerchant,getReference,getProduct,getCategory,getOrders));
+
 
         roleRepository.saveAll(Arrays.asList(adminRole,merchantRole,guestRole));
         log.info("Creating users ....");

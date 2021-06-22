@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -27,10 +28,12 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  displayMenu = false;
+  constructor(private permissionsService: NgxPermissionsService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.displayMenu = this.permissionsService.getPermission('get_references')==undefined
   }
   isMobileMenu() {
       if ($(window).width() > 991) {

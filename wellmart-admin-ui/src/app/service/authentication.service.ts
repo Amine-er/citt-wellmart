@@ -16,6 +16,9 @@ import { NgxPermissionsService } from "ngx-permissions";
      
     }
 
+  public getJwt(): string{
+    return sessionStorage.getItem("jwt");
+  }
   public isAuthenticated() :boolean{
     return sessionStorage.getItem("jwt") != null && sessionStorage.getItem("jwt") != "" && sessionStorage.getItem("jwt") != undefined;
   }

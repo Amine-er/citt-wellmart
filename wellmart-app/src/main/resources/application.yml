@@ -5,7 +5,13 @@ application-name: @project.name@
 
 spring:
   jpa:
-    show-sql : true
+    show-sql : false
     properties:
       hibernate:
         format_sql: true
+
+logging:
+  level:
+     org:
+      springframework:
+           security: DEBUG

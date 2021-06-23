@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 
@@ -23,6 +23,7 @@ import { MaterialModule } from './material.module';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LoginComponent } from './components/user/login/login.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { AddTokenInterceptor } from './service/TokenInterceptor';
 
 @NgModule({
   imports: [
@@ -45,7 +46,13 @@ import { NgxPermissionsModule } from 'ngx-permissions';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+ providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AddTokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

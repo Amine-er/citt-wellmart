@@ -48,7 +48,7 @@ public class TokenAuthenticationService implements UserAuthenticationService {
     public Optional<User> findByToken(final String token) {
         return Optional
                 .of(tokens.verify(token))
-                .map(map -> map.get("username"))
+                .map(map -> map.get("user"))
                 .flatMap(userService::findByUsername);
     }
 

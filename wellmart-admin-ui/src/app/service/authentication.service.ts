@@ -12,18 +12,35 @@ import { NgxPermissionsService } from "ngx-permissions";
   })
   export class Authenticationervice {
   
-    
     constructor(private httpClient: HttpClient,private mainConfig:MainConfigService ,private permissionsService: NgxPermissionsService,) {
      
     }
 
+  public isAuthenticated() :boolean{
+    return sessionStorage.getItem("jwt") != null && sessionStorage.getItem("jwt") != "" && sessionStorage.getItem("jwt") != undefined;
+  }
   public extractJwt(token: Token) {
     sessionStorage.setItem("jwt", token.jwt)
     this.getPermissions();
   }
 
+  public logout() {
+
+    this.permissionsService.loadPermissions([]);
+        sessionStorage.removeItem("jwt")
+  }
+  public getUserName(): string{
+        const helper = new JwtHelperService();
+    const token = sessionStorage.getItem("jwt")
+    let username = "";
+    if (token) {
+          const decodedToken = helper.decodeToken(token);
+      username = decodedToken.user;
+    }
+    return username;
+  }
   public getPermissions(): string[]{
-    let permssions = [];
+    
     const helper = new JwtHelperService();
     const token = sessionStorage.getItem("jwt")
     if (token) {
@@ -31,13 +48,19 @@ import { NgxPermissionsService } from "ngx-permissions";
       let authorities = [];
       if (decodedToken.role[0]) {
         authorities = decodedToken.role[0].authorities;
+        let permssions = [];
         authorities.forEach(function (item) {
           permssions.push(item.permission);
         })
+        this.permissionsService.loadPermissions(permssions);
+            return permssions;
       }
     }
-     this.permissionsService.loadPermissions(permssions);
-    return permssions;
+    else {
+      return [];
+    }
+  
+
   }
   
     public login(user): Observable<Token> {

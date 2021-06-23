@@ -1,4 +1,4 @@
-  <div class="wrapper">
+  <div class="wrapper form-wrap">
     <form class="form-signin" [formGroup]="userForm" novalidate>       
       <h2 class="form-signin-heading">Wellmart login</h2>
       <div>
@@ -8,7 +8,7 @@
       <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password" required=""/>      
       </div>
       <div class="btn-login">
-      <button (click)="login()" [disabled]="!userForm.valid" class="btn btn-lg btn-warning btn-block" type="submit">Login</button>   
+      <button (click)="login()" [disabled]="!userForm.valid" class="btn btn-lg btn-warning btn-block btn-bg" type="submit">Login</button>   
       </div>
 
         <div *ngIf="userForm.controls['username'].invalid && (userForm.controls['username'].dirty || userForm.controls['username'].touched)" class="invalid-input">

@@ -17,7 +17,12 @@ export class LoginComponent implements OnInit {
    userForm: FormGroup;
    displayError: boolean = false;
   ngOnInit(): void {
-     this.createForm();
+    if (this.authenticationervice.isAuthenticated()) {
+      this.authenticationervice.getPermissions();
+       this.router.navigate(['/dashboard']);
+    }
+    this.createForm();
+   
   }
 
   login() {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Authenticationervice } from 'app/service/authentication.service';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -8,7 +10,7 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authenticationervice:Authenticationervice,private router: Router) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -66,6 +68,12 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+    if (this.authenticationervice.isAuthenticated()) {
+            this.authenticationervice.getPermissions();
+        } else {
+            this.authenticationervice.logout();
+             this.router.navigate(['/login']);
+        }
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {

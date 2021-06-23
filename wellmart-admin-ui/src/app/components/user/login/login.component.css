@@ -21,6 +21,9 @@ body {
 	font-weight: bold;
 	text-align: center;
 }
+.btn-bg{
+	background: #f44336 !important;
+}
 .form-signin {
   max-width: 480px;
   padding: 15px 35px 45px;
@@ -60,4 +63,10 @@ body {
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
+}
+
+.form-wrap{
+	    position: relative;
+    right: 113px;
+
 }

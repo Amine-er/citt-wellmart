@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 import { NgxPermissionsService } from 'ngx-permissions';
+import { Authenticationervice } from 'app/service/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,13 +17,22 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router,private permissionsService: NgxPermissionsService)
+    constructor(location: Location, private authenticationervice:Authenticationervice,private element: ElementRef, private router: Router,private permissionsService: NgxPermissionsService)
 {
       this.location = location;
           this.sidebarVisible = false;
     }
-
-    ngOnInit(){
+    logout() {
+        this.authenticationervice.logout();
+           this.router.navigate(['/login']);
+}
+    ngOnInit() {
+        if (this.authenticationervice.isAuthenticated()) {
+            this.authenticationervice.getPermissions();
+        } else {
+            this.authenticationervice.logout();
+             this.router.navigate(['/login']);
+        }
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];

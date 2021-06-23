@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Authenticationervice } from 'app/service/authentication.service';
 import { NgxPermissionsService } from 'ngx-permissions';
 
 declare const $: any;
@@ -29,9 +31,15 @@ export class SidebarComponent implements OnInit {
   menuItems: any[];
 
   displayMenu = false;
-  constructor(private permissionsService: NgxPermissionsService) { }
+  constructor(private permissionsService: NgxPermissionsService,private authenticationervice:Authenticationervice,private router: Router,) { }
 
   ngOnInit() {
+            if (this.authenticationervice.isAuthenticated()) {
+            this.authenticationervice.getPermissions();
+        } else {
+            this.authenticationervice.logout();
+             this.router.navigate(['/login']);
+        }
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.displayMenu = this.permissionsService.getPermission('get_references')==undefined
   }

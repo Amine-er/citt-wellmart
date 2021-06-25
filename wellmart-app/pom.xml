@@ -14,5 +14,26 @@
 	<packaging>jar</packaging>
 	<name>wellmart-app</name>
 	<description>Wellmart backend app</description>
-
+	<profiles>
+	<profile>
+	<id>docker-images</id>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.1.1</version>
+				<configuration>
+					<from>
+						<image>gcr.io/distroless/java:11</image>
+					</from>
+					<to>
+						<image>docker.io/e2rabi11/wellmart-app-image</image>
+					</to>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	</profile>
+	</profiles>
 </project>

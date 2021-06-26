@@ -1,0 +1,7 @@
+docker login registry-1.docker.io
+docker build -t  wellmart-admin-ui .
+
+
+docker run --name wellmart-admin-ui -d -p 8080:80 e2rabi11/wellmart-admin-ui
+
+docker image push e2rabi11/wellmart-admin-ui

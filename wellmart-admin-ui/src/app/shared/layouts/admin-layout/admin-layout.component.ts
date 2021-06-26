@@ -18,7 +18,7 @@ export class AdminLayoutComponent implements OnInit {
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
 
-  constructor( public location: Location, private router: Router,private permissionsService: NgxPermissionsService) {}
+  constructor( public location: Location, private router: Router,public permissionsService: NgxPermissionsService) {}
 
   ngOnInit() {
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;

@@ -31,7 +31,7 @@ export class SidebarComponent implements OnInit {
   menuItems: any[];
 
   displayMenu = false;
-  constructor(private permissionsService: NgxPermissionsService,private authenticationervice:Authenticationervice,private router: Router,) { }
+  constructor(public permissionsService: NgxPermissionsService,public authenticationervice:Authenticationervice,private router: Router,) { }
 
   ngOnInit() {
             if (this.authenticationervice.isAuthenticated()) {

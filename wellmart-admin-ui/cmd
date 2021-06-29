@@ -5,3 +5,55 @@ docker build -t  wellmart-admin-ui .
 docker run --name wellmart-admin-ui -d -p 8080:80 e2rabi11/wellmart-admin-ui
 
 docker image push e2rabi11/wellmart-admin-ui
+
+
+
+az group create --name=wellmart-kubernetes --location=eastus
+
+
+az acr create --resource-group wellmart-kubernetes --location eastus \
+ --name wellmartregistry --sku Basic
+ 
+ docker pull wellmartregistry.azurecr.io/wellmart-app
+ 
+ az config set defaults.acr=wellmartregistry
+ 
+ az acr login -n  wellmartregistry && mvn compile jib:build
+az acr build --image wellmartregistry.azurecr.io/wellmart-admin-ui   --registry wellmartregistry   --file Dockerfile .
+  
+ 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wellmart-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wellmart-app
+  template:
+    metadata:
+      labels:
+        app: wellmart-app
+    spec:
+      containers:
+      - name:  wellmart-app
+        image: wellmartregistry.azurecr.io/wellmart-app:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wellmart-app
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: wellmart-app
+	
+	
+	az aks create --resource-group=wellmart-kubernetes --name=wingtiptoys-akscluster \
+ --attach-acr wellmartregistry \
+ --dns-name-prefix=wellmart-kubernetes --generate-ssh-keys
+ 

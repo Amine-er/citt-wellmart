@@ -18,7 +18,7 @@
 	<profile>
 	<id>docker-images</id>
 	<build>
-		<plugins>
+<!--		<plugins>
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
@@ -29,6 +29,21 @@
 					</from>
 					<to>
 						<image>docker.io/e2rabi11/wellmart-app-image</image>
+					</to>
+				</configuration>
+			</plugin>
+		</plugins>-->
+		<plugins>
+			<plugin>
+				<artifactId>jib-maven-plugin</artifactId>
+				<groupId>com.google.cloud.tools</groupId>
+				<version>3.1.1</version>
+				<configuration>
+					<from>
+						<image>mcr.microsoft.com/java/jdk:11-zulu-alpine</image>
+					</from>
+					<to>
+						<image>wellmartregistry.azurecr.io/wellmart-app</image>
 					</to>
 				</configuration>
 			</plugin>

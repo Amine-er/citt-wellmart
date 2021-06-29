@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wellmart-admin-ui 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wellmart-admin-ui 
+  template:
+    metadata:
+      labels:
+        app: wellmart-admin-ui 
+    spec:
+      containers:
+      - name:  wellmart-admin-ui 
+        image: wellmartregistry.azurecr.io/wellmart-admin-ui 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wellmart-admin-ui 
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: wellmart-admin-ui 
+
+
+  

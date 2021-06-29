@@ -29,6 +29,8 @@
 		<guava.version>30.0-jre</guava.version>
 		<jwt.version>0.9.1</jwt.version>
 		<joda-time.version>2.10.8</joda-time.version>
+		<docker.image.prefix>wellmartregistry.azurecr.io</docker.image.prefix>
+		<jib-maven-plugin.version>2.5.2</jib-maven-plugin.version>
 	</properties>
 
 	<developers>
@@ -242,15 +244,15 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
+				<groupId>com.google.cloud.tools</groupId>
 				<version>3.1.1</version>
 				<configuration>
 					<from>
-						<image>gcr.io/distroless/java:11</image>
+						<image>mcr.microsoft.com/java/jdk:11-zulu-alpine</image>
 					</from>
 					<to>
-						<image>registry.hub.docker.com/e2rabi11/wellmart-app-image</image>
+						<image>wellmartregistry.azurecr.io/wellmart-app</image>
 					</to>
 				</configuration>
 			</plugin>

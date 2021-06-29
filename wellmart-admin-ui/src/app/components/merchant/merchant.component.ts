@@ -8,7 +8,7 @@ import { Authenticationervice } from 'app/service/authentication.service';
   styleUrls: ['./merchant.component.css']
 })
 export class MerchantComponent implements OnInit {
-
+panelOpenState = false;
   constructor(private authenticationervice: Authenticationervice, private router: Router, route: ActivatedRoute) {
     route.params.subscribe(val => {
      if (this.authenticationervice.isAuthenticated()) {

@@ -2,12 +2,14 @@ package com.citt.wellmart.controller;
 
 import com.citt.wellmart.entities.Category;
 import com.citt.wellmart.repositories.CategoryRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Tag(name = "categories Management")
 @RequestMapping("/categories")
 public class CategoryController {
     @Autowired

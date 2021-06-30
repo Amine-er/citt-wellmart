@@ -17,61 +17,54 @@
                       <h4 class="card-title">New Merchant</h4>
                   </div>
                   <div class="card-body">
-                      <form>
+                      <form (ngSubmit)="onCreateMerchant()"  [formGroup]="merchantForm">
                           <div class="row">
                               <div class="col-md-3">
                                 <mat-form-field appearance="fill">
                                 <mat-label>Merchant Type</mat-label>
-                                <select matNativeControl required>
-                                  <option value="volvo">Company</option>
-                                  <option value="saab">Person</option>
+                                <select matNativeControl required   formControlName="merchantType">
+                                  <option value="cc">Company</option>
+                                  <option value="cp">Person</option>
                                 </select>
                               </mat-form-field>
                               </div>
                                <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="FirstName">
+                                    <input formControlName="firstName" matInput placeholder="FirstName" [ngClass]="{'is-invalid': (merchantForm.get('firstName').touched || merchantForm.get('firstName').dirty) && !merchantForm.get('firstName').valid}"/>
                                   </mat-form-field>
                               </div>
                               <div class="col-md-2">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="LastName" type="text">
+                                    <input formControlName="lastName" matInput placeholder="LastName" [ngClass]="{'is-invalid': (merchantForm.get('lastName').touched || merchantForm.get('lastName').dirty) && !merchantForm.get('lastName').valid}"/>
                                   </mat-form-field>
                               </div>
                                <div class="col-md-3">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Phone" type="text">
+                                    <input formControlName="phone" matInput placeholder="Phone" [ngClass]="{'is-invalid': (merchantForm.get('phone').touched || merchantForm.get('phone').dirty) && !merchantForm.get('phone').valid}"/>
                                   </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Company Name" type="text">
+                                    <input formControlName="companyName" matInput placeholder="Company Name" [ngClass]="{'is-invalid': (merchantForm.get('companyName').touched || merchantForm.get('companyName').dirty) && !merchantForm.get('companyName').valid}"/>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Company Activity" type="text">
+                                    <input formControlName="companyActivity" matInput placeholder="Company Activity" [ngClass]="{'is-invalid': (merchantForm.get('companyActivity').touched || merchantForm.get('companyActivity').dirty) && !merchantForm.get('companyActivity').valid}"/>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Web site" type="text">
+                                  <input formControlName="webSite"  matInput placeholder="Web site" type="text">
                                 </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-12">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Adress" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Phone" type="text">
+                                    <input formControlName="address" matInput placeholder="Address" [ngClass]="{'is-invalid': (merchantForm.get('address').touched || merchantForm.get('address').dirty) && !merchantForm.get('address').valid}"/>
                                 </mat-form-field>
                               </div>
                           </div>
@@ -83,8 +76,12 @@
                               </div>
                                <a class="upload-btn"  href="#">Upload image </a>
                           </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Create Merchant</button>
-                          <div class="clearfix"></div>
+                          <button [disabled]="!merchantForm.valid" mat-raised-button type="submit" class="btn btn-danger pull-right">Create Merchant</button>
+                          <div class="clearfix">
+                                  <br />Dirty : {{ merchantForm.dirty }} <br />Touched :
+                                {{ merchantForm.touched }} <br />Valid : {{ merchantForm.valid }} <br />Value :
+                                {{ merchantForm.value | json }}
+                          </div>
                       </form>
                   </div>
               </div>

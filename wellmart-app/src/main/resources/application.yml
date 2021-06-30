@@ -1,6 +1,4 @@
 
-application-version: @project.version@
-application-name: @project.name@
 
 
 spring:
@@ -9,7 +7,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true # disable swagger default pet store api
 logging:
   level:
      org:

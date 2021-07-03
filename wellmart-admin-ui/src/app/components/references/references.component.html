@@ -31,16 +31,6 @@
                                 <th mat-header-cell *matHeaderCellDef>Pays</th>
                                 <td mat-cell *matCellDef="let row">{{row.country.name}}</td>
                               </ng-container>
-
-                               <!-- Title Column -->
-                            <ng-container matColumnDef="edit" style="width:100px">
-                                <th mat-header-cell *matHeaderCellDef></th>
-                                <td mat-cell *matCellDef="let row">
-                                    <button style="float: right;position: relative;left: 270px;" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-                                        <mat-icon>mode_edit</mat-icon>
-                                      </button>
-                                </td>
-                              </ng-container>
                               <ng-container matColumnDef="trash" style="width:100px">
                                 <th mat-header-cell *matHeaderCellDef></th>
                                 <td mat-cell *matCellDef="let row">

@@ -1,0 +1,153 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <mat-accordion>
+          <mat-expansion-panel expanded="true" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Create New Product
+              </mat-panel-title>
+              <mat-panel-description>
+              
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+               <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">New Product</h4>
+                  </div>
+                  <div class="card-body">
+                      <form (ngSubmit)="onCreateProduct()"  [formGroup]="merchantForm">
+                          <div class="row">
+                              <div class="col-md-3">
+                                <mat-form-field appearance="fill">
+                                <mat-label>Product Categorie</mat-label>
+                                <select matNativeControl required   formControlName="category">
+                                  <option *ngFor="let cat of categories" value={{cat.id}}>{{cat.name}}</option>
+                                </select>
+                              </mat-form-field>
+                              </div>
+                               <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input formControlName="name" matInput placeholder="Product Name" [ngClass]="{'is-invalid': (merchantForm.get('name').touched || merchantForm.get('name').dirty) && !merchantForm.get('name').valid}"/>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input formControlName="price" matInput placeholder="Product Price" [ngClass]="{'is-invalid': (merchantForm.get('price').touched || merchantForm.get('price').dirty) && !merchantForm.get('price').valid}"/>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                    <input formControlName="description" matInput placeholder="Product Description" [ngClass]="{'is-invalid': (merchantForm.get('description').touched || merchantForm.get('description').dirty) && !merchantForm.get('description').valid}"/>
+                                </mat-form-field>
+                              </div>
+                          </div>
+
+                          <div class="container row">
+                              <div class="col-md-12">
+                                  <h5>Select Product Image</h5>
+                              </div>
+                          </div>
+                          <div class="row">
+                                <div class="col-md-6">
+                                    <input type="file" (change)="onFileChanged($event)">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="button" (click)="onUpload()" value="upload">
+                                </div>
+                            </div>
+                         <div class="row">
+                              <div class="col-md-12">
+                                  <div *ngIf=retrievedImage>
+                                      <img [src]="retrievedImage">
+                                  </div>
+                              </div>
+                          </div>
+                                                    <mat-divider></mat-divider>
+                                                                              <div class="row">
+                            <div class="col-md-12">
+                                <div *ngIf=message>{{message}}</div>
+                            </div>
+                        </div>
+                          <button [disabled]="!merchantForm.valid" mat-raised-button type="submit" class="btn btn-danger pull-right">Create Product</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                              (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Product list 
+              </mat-panel-title>
+              <mat-panel-description>
+
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+                                           <div class="example-container mat-elevation-z8">
+                        <div class="example-table-container">
+                          <table style="width: 100%;" mat-table [dataSource]="dataSource" class="example-table"
+                                 matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+                            <!-- Number Column -->
+                            <ng-container matColumnDef="id">
+                              <th mat-header-cell *matHeaderCellDef>Id</th>
+                              <td mat-cell *matCellDef="let row">{{row.id}}</td>
+                            </ng-container>
+                            <!-- Title Column -->
+                            <ng-container matColumnDef="category">
+                              <th mat-header-cell *matHeaderCellDef>Category</th>
+                              <td mat-cell *matCellDef="let row">{{row.category.name}}</td>
+                            </ng-container>    
+                            <!-- Title Column -->
+                            <ng-container matColumnDef="name" >
+                                <th mat-header-cell *matHeaderCellDef>Name</th>
+                                <td mat-cell *matCellDef="let row">{{row.name}}</td>
+                              </ng-container>
+                            <!-- Title Column -->
+                            <ng-container matColumnDef="price" >
+                                <th mat-header-cell *matHeaderCellDef>Price</th>
+                                <td mat-cell *matCellDef="let row">{{row.price}} DH</td>
+                              </ng-container>
+                                                          <!-- Title Column -->
+                            <ng-container matColumnDef="description" >
+                                <th mat-header-cell *matHeaderCellDef>Description</th>
+                                <td mat-cell *matCellDef="let row">{{row.description}}</td>
+                              </ng-container>
+                                                                                        <!-- Title Column -->
+                            <ng-container matColumnDef="image" >
+                                <th mat-header-cell *matHeaderCellDef>Product Image</th>
+                                <td mat-cell *matCellDef="let row">
+                                   <div>
+                                      <img height="108" width="108"  src={{row.imageUrl}}>
+                                  </div>
+                                </td>
+                              </ng-container>
+                               <!-- Title Column -->
+                              <ng-container matColumnDef="trash" style="width:100px">
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let row">
+                                    <button style="float: right;" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                                        <mat-icon>delete</mat-icon>
+                                      </button>
+                                </td>
+                              </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                          </table>
+                        </div>
+                      
+                          <mat-paginator #paginator
+                          [pageSize]="5"
+                          [pageSizeOptions]="[5, 10, 20]">
+                            </mat-paginator>
+                      </div>
+          </mat-expansion-panel>
+   </mat-accordion>
+
+  </div>
+</div>

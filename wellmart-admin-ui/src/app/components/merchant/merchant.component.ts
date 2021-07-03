@@ -19,7 +19,7 @@ export class MerchantComponent implements OnInit,AfterViewInit {
     data: Merchnant[] = [];
   dataSource = new MatTableDataSource<Merchnant>([]);
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['merchantType', 'firstName','lastName','name','activity','phone','email','address','webSite','edit','trash'];
+  displayedColumns: string[] = ['merchantType', 'firstName','lastName','name','activity','phone','email','address','webSite','trash'];
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;

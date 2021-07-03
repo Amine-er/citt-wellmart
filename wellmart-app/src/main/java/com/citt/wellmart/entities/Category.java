@@ -1,6 +1,7 @@
 package com.citt.wellmart.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Category {
     private  String name ;
     private  String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Product> products ;
 

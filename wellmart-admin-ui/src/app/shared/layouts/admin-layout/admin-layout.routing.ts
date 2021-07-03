@@ -6,6 +6,7 @@ import { ReferencesComponent } from '../../../components/references/references.c
 import { MapsComponent } from '../../../components/dashboard/maps/maps.component';
 import { NotificationsComponent } from '../../../components/dashboard/notifications/notifications.component';
 import { LoginComponent } from 'app/components/user/login/login.component';
+import { ProductComponent } from 'app/components/product/product.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -55,5 +56,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'references',     component: ReferencesComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications', component: NotificationsComponent },
-    { path: 'login',component: LoginComponent}
+    { path: 'login', component: LoginComponent },
+       { path: 'products',     component: ProductComponent },
 ];

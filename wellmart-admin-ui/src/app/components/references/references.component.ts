@@ -20,7 +20,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./references.component.css']
 })
 export class  ReferencesComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name','pays','edit','trash'];
+  displayedColumns: string[] = ['id', 'name','pays','trash'];
   data: City[] = [];
   dataSource = new MatTableDataSource<City>([]);
 

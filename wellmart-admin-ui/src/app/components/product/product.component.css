@@ -1,0 +1,12 @@
+.upload-image{
+    float: left;
+}
+.upload-image::after{
+    clear: both
+}
+.upload-btn{
+    position: relative;
+    left: 70px;
+    bottom: 40px;
+    color: blue;
+}

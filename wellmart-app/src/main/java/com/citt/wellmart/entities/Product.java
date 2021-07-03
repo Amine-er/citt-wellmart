@@ -15,7 +15,7 @@ public class Product {
     private String name ;
     private String description;
     private String imageUrl ;
-    private Double price ;
+    private String price ;
 
     @Enumerated(EnumType.STRING)
     private ProductStatus status ;
@@ -31,7 +31,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "merchant_id")
     private Merchant merchant ;
-
+    @OneToOne
+    private ImageModel imageModel ;
     @OneToMany(mappedBy = "product")
     private List<ProductExperience> productExperiences;
 

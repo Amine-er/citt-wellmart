@@ -10,7 +10,8 @@ export class MainConfigService {
    private baseUrl: any;
    private ProviderUrlApi = {
      getCountriesUrlPart: '/cities',
-     getLoginUrlPart : '/public/v1/users/login'
+     getLoginUrlPart: '/public/v1/users/login',
+     getMerchantsPart: '/merchants'
    };
 
   constructor() {
@@ -23,5 +24,8 @@ export class MainConfigService {
 
   public getLoginUrl(): string{
     return this.baseUrl + this.ProviderUrlApi.getLoginUrlPart;
+  }
+  public getMerchantsUrl() :string{
+     return this.baseUrl + this.ProviderUrlApi.getMerchantsPart;
   }
 }

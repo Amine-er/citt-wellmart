@@ -23,8 +23,8 @@
                                 <mat-form-field appearance="fill">
                                 <mat-label>Merchant Type</mat-label>
                                 <select matNativeControl required   formControlName="merchantType">
-                                  <option value="cc">Company</option>
-                                  <option value="cp">Person</option>
+                                  <option value="C">Company</option>
+                                  <option value="P">Person</option>
                                 </select>
                               </mat-form-field>
                               </div>
@@ -62,26 +62,19 @@
                               </div>
                           </div>
                           <div class="row">
-                              <div class="col-md-12">
+                              <div class="col-md-8">
                                 <mat-form-field class="example-full-width">
                                     <input formControlName="address" matInput placeholder="Address" [ngClass]="{'is-invalid': (merchantForm.get('address').touched || merchantForm.get('address').dirty) && !merchantForm.get('address').valid}"/>
                                 </mat-form-field>
                               </div>
+                             <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                    <input formControlName="email" matInput placeholder="Email" [ngClass]="{'is-invalid': (merchantForm.get('email').touched || merchantForm.get('email').dirty) && !merchantForm.get('email').valid}"/>
+                                </mat-form-field>
+                              </div>
                           </div>
                           <mat-divider></mat-divider>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <img class="upload-image" height="198" width="198" src="../.././../assets/img/rest1">
-                                
-                              </div>
-                               <a class="upload-btn"  href="#">Upload image </a>
-                          </div>
                           <button [disabled]="!merchantForm.valid" mat-raised-button type="submit" class="btn btn-danger pull-right">Create Merchant</button>
-                          <div class="clearfix">
-                                  <br />Dirty : {{ merchantForm.dirty }} <br />Touched :
-                                {{ merchantForm.touched }} <br />Valid : {{ merchantForm.valid }} <br />Value :
-                                {{ merchantForm.value | json }}
-                          </div>
                       </form>
                   </div>
               </div>
@@ -95,10 +88,81 @@
                 Merchant list 
               </mat-panel-title>
               <mat-panel-description>
-             
+
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <!-- data table here-->
+                                           <div class="example-container mat-elevation-z8">
+                        <div class="example-table-container">
+                          <table style="width: 100%;" mat-table [dataSource]="dataSource" class="example-table"
+                                 matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+                            <!-- Number Column -->
+                            <ng-container matColumnDef="merchantType">
+                              <th mat-header-cell *matHeaderCellDef>Merchant Type</th>
+                              <td mat-cell *matCellDef="let row">{{row.merchantType}}</td>
+                            </ng-container>
+                            <!-- Title Column -->
+                            <ng-container matColumnDef="firstName">
+                              <th mat-header-cell *matHeaderCellDef>firstName</th>
+                              <td mat-cell *matCellDef="let row">{{row.firstName}}</td>
+                            </ng-container>    
+                            <!-- Title Column -->
+                            <ng-container matColumnDef="lastName" >
+                                <th mat-header-cell *matHeaderCellDef>lastName</th>
+                                <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
+                              </ng-container>
+                            <!-- Title Column -->
+                            <ng-container matColumnDef="name" >
+                                <th mat-header-cell *matHeaderCellDef>name</th>
+                                <td mat-cell *matCellDef="let row">{{row.name}}</td>
+                              </ng-container>
+                                                          <!-- Title Column -->
+                            <ng-container matColumnDef="activity" >
+                                <th mat-header-cell *matHeaderCellDef>activity</th>
+                                <td mat-cell *matCellDef="let row">{{row.activity}}</td>
+                              </ng-container>
+                               <ng-container matColumnDef="phone" >
+                                <th mat-header-cell *matHeaderCellDef>phone</th>
+                                <td mat-cell *matCellDef="let row">{{row.phone}}</td>
+                              </ng-container>
+                             <ng-container matColumnDef="email" >
+                                <th mat-header-cell *matHeaderCellDef>email</th>
+                                <td mat-cell *matCellDef="let row">{{row.email}}</td>
+                              </ng-container>
+                             <ng-container matColumnDef="address" >
+                                <th mat-header-cell *matHeaderCellDef>address</th>
+                                <td mat-cell *matCellDef="let row">{{row.address}}</td>
+                              </ng-container>
+                              <ng-container matColumnDef="webSite" >
+                                <th mat-header-cell *matHeaderCellDef>webSite</th>
+                                <td mat-cell *matCellDef="let row">{{row.webSite}}</td>
+                              </ng-container>
+                               <!-- Title Column -->
+                            <ng-container matColumnDef="edit" style="width:100px">
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let row">
+                                    <button style="float: right;position: relative;left: 270px;" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                                        <mat-icon>mode_edit</mat-icon>
+                                      </button>
+                                </td>
+                              </ng-container>
+                              <ng-container matColumnDef="trash" style="width:100px">
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let row">
+                                    <button style="float: right;" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                                        <mat-icon>delete</mat-icon>
+                                      </button>
+                                </td>
+                              </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                          </table>
+                        </div>
+                      
+                          <mat-paginator #paginator
+                          [pageSize]="5"
+                          [pageSizeOptions]="[5, 10, 20]">
+                            </mat-paginator>
+                      </div>
           </mat-expansion-panel>
    </mat-accordion>
 

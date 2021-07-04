@@ -1,6 +1,17 @@
 INSERT INTO COUNTRY values(1,'Maroc');
 
-INSERT INTO CATEGORY values(1, 'Chicken Burgers', 'KFC');
+
+INSERT INTO CATEGORY values
+(1, 'All categories', 'All'),
+(2, 'Burgers', 'Burger'),
+(3,'italien foods', 'italien'),
+(4,'Asian foods', 'Asiatique'),
+(5, 'Le marché', 'Marché'),
+(6,'Epicerie', 'Epicerie'),
+(7, 'Africain foods', 'Africain'),
+(8, 'Street foods', 'Street Food'),
+(9, 'Healty foods', 'Healthy'),
+(10, 'Gourmet', 'Gourmet');
 
 
 INSERT INTO CITY values(1,'Afourar', 1);

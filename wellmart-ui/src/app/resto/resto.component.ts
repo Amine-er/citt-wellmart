@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../services/countries.service';
+
 
 @Component({
   selector: 'app-resto',
@@ -12,13 +12,10 @@ export class RestoComponent implements OnInit {
   test: boolean = false;
   categories: any = [];
   constructor(
-    private httpClient: HttpClient,
-    private categoryService: CategoryService
+    private httpClient: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this.categoryService.getCategories().subscribe((response) => {
-      this.categories = response;
-    });
+
   }
 }

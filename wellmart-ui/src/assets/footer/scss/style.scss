@@ -1,0 +1,101 @@
+
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+$font-family-sans-serif-2: 'Poppins', sans-serif;
+$font-family-serif: 'Source Serif Pro', serif;
+
+
+
+body {
+	font-family: $font-family-sans-serif;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $font-family-sans-serif;
+}
+a {
+	transition: .3s all ease;
+	&, &:hover {
+		text-decoration: none!important;
+	}
+}
+.content {
+	height: 70vh;
+}
+
+// footer 9
+.footer-16371 {
+	padding: 7rem 0;
+	font-family: $font-family-sans-serif-2;
+
+	.footer-site-logo {
+		text-align: center;
+		font-size: 2rem;
+		font-weight: 900;
+		a {
+			color: #4200ff;
+		}
+	}
+
+	.nav-links {
+		padding: 0;
+		margin: 0;
+		li {
+			display: inline-block;
+			a {
+				padding: 10px;
+				color: $black;
+				&:hover {
+					color: #4200ff;
+				}
+			}
+		}
+	}
+	.social {
+		h3 {
+			font-weight: bold;
+			font-size: 18px;
+			color: $black;
+		}
+		ul {
+			li {
+				display: inline-block;
+				a {
+					display: inline-block;
+					padding: 10px;
+				}
+				&.in {
+					a {
+						color: #df588a;
+					}
+				}
+				&.tw {
+					a {
+						color: #15b8ff;
+					}
+				}
+				&.fb {
+					a {
+						color: #3742d0;
+					}
+				}
+				&.dr {
+					a {
+						color: #fa38c1;
+					}
+				}
+				&.pin {
+					a {
+						color: #dd4d5a;
+					}
+				}
+			}
+		}
+	}
+	.copyright {
+		color: darken(#ccc, 20%);
+	}
+}

@@ -1,0 +1,67 @@
+<div class="titre">
+
+	<h4 class="tout"><strong>Tout</strong></h4>
+
+</div>
+
+
+<div *ngIf="resto">
+<div class="courses-container" *ngIf="resto.page.totalElements eq 0; else test">
+
+	
+	<div  class="course" *ngFor="let r of resto._embedded.restoes">
+
+		
+		
+		<div class="course-preview" >
+
+			
+
+
+            <img class="imgResto" src="assets/CategorieImage/Burgers.jpg" />
+
+			<div class="statut">
+
+				<h5><strong>Fermé</strong></h5>
+				</div>
+			
+		</div>
+
+		
+		
+		
+		<div class="course-info">
+
+			<h5><strong>{{r.nom}}</strong></h5>
+			<h6>{{r.adresse}}</h6>
+		
+			<button class="btn">40 mins</button>
+		</div>
+
+		
+	</div>
+
+
+	
+
+	</div>
+
+	</div>
+
+	<ng-template #test>
+
+		<div class="resto">
+
+			<h3>Aucun resto trouvé !</h3>
+
+		</div>
+
+	</ng-template>
+
+
+
+	
+
+
+
+<!-- SOCIAL PANEL HTML -->

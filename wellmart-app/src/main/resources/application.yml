@@ -7,6 +7,14 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        ddl-auto: update
+  datasource:
+    url: jdbc:h2:mem:socialdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    platform: h2
+    driverClassName: org.h2.Driver
+
 springdoc:
   swagger-ui:
     disable-swagger-default-url: true # disable swagger default pet store api

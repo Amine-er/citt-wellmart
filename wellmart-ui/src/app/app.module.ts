@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RestoDetailComponent } from './resto-detail/resto-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
-import {RouterModule,Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { LocalisationComponent } from './localisation/localisation.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,22 +18,17 @@ import { CommonModule } from '@angular/common';
 import { InscriptionSuccesComponent } from './inscription-succes/inscription-succes.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { ProductComponent } from './product/product/product.component';
 
-const appRoutes : Routes = [
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'inscription', component: InscriptionComponent },
+  { path: '', component: CategorieComponent },
 
-  {path:'login',component : LoginComponent,
-    },
-    {path:'inscription',component : InscriptionComponent,
-    },
-  {path:'',component : CategorieComponent
-  },
-
-  {path:'localisation',component : LocalisationComponent
-  },
+  { path: 'localisation', component: LocalisationComponent },
   { path: 'logout', component: LogoutComponent },
-  
 
-
+  { path: 'product', component: ProductComponent },
 ];
 
 @NgModule({
@@ -49,15 +44,18 @@ const appRoutes : Routes = [
     LocalisationComponent,
     InscriptionSuccesComponent,
     LogoutComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,
-    RouterModule.forRoot(appRoutes),FormsModule,CommonModule
-    
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    CommonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

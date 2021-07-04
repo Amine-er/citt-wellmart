@@ -1,18 +1,12 @@
 INSERT INTO COUNTRY values(1,'Maroc');
 
 
-INSERT INTO CATEGORY values
-(1, 'All categories', 'All'),
-(2, 'Burgers', 'Burger'),
-(3,'italien foods', 'italien'),
-(4,'Asian foods', 'Asiatique'),
-(5, 'Le marché', 'Marché'),
-(6,'Epicerie', 'Epicerie'),
-(7, 'Africain foods', 'Africain'),
-(8, 'Street foods', 'Street Food'),
-(9, 'Healty foods', 'Healthy'),
-(10, 'Gourmet', 'Gourmet');
-
+INSERT INTO CATEGORY values (1, 'All categories', 'assets/CategorieImage/tout.png','All');
+INSERT INTO CATEGORY values(2, 'Burgers', 'assets/CategorieImage/Burgers.jpg','Burger');
+INSERT INTO CATEGORY values(3,'italien foods','assets/CategorieImage/italien.jpg', 'italien');
+INSERT INTO CATEGORY values(4,'Asian foods','assets/CategorieImage/asiatique.jpg', 'Asiatique');
+INSERT INTO CATEGORY values(5, 'Le marché', 'assets/CategorieImage/marché.jpg','Marché');
+INSERT INTO CATEGORY values(6,'Epicerie','assets/CategorieImage/epicerie.jpg' ,'Epicerie');
 
 INSERT INTO CITY values(1,'Afourar', 1);
 INSERT INTO CITY values(2,'Agadir', 1);

@@ -16,7 +16,7 @@ public class Category {
     private  Long id;
     private  String name ;
     private  String description;
-
+    private  String imageBase64;
     @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Product> products ;

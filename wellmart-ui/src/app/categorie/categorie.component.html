@@ -1,97 +1,13 @@
-
-
 <div class="titre">
-
-	<h4 class="categorie"><strong>Categorie</strong></h4>
-
+  <h4 class="categorie"><strong>Categorie</strong></h4>
 </div>
 
-<div class="container">
-  
-  <div class="card">
-   
-  
-    <div >
-      
-      <img src="assets/CategorieImage/tout.png" />
-
+<div class="container" style="height: 500px">
+  <div *ngFor="let cat of categories" class="card">
+    <div>
+      <img src="{{ cat.imageBase64 }}" />
     </div>
 
-    <h4 class="categ">Tout</h4>
-
+    <h4 class="categ">{{ cat.name }}</h4>
   </div>
-
-
-    <div class="card" >
-      
-    
-      <div >
-        
-        <img src="assets/CategorieImage/Burgers.jpg" />
-
-      </div>
-
-      <h4 class="categ">Burger</h4>
-   
-    </div>
-    <div class="card">
-      
-    
-      <div >
-        
-        
-        <img src="assets/CategorieImage/italien.jpg" />
-
-      </div>
-
-      <h4 class="categ">Italien</h4>
-    </div>
-    <div class="card">
-      
-     
-      <div >
-        
-        <img src="assets/CategorieImage/asiatique.jpg" />
-
-      </div>
-
-
-      <h4 class="categ">Asiatique</h4>
-
-    </div>
-    <div class="card">
-      
-      
-      <div >
-        
-        <img src="assets/CategorieImage/marché.jpg" />
-
-      </div>
-
-      <h4 class="categ">Marché</h4>
-    </div>
-
-    <div class="card">
- 
-       
-        <div >
-          
-          <img src="assets/CategorieImage/epicerie.jpg" />
-  
-        </div>
-
-        <h4 class="categ">Epicerie</h4>
-
-      </div>
-
-      
-
-    
-
-
-  </div>
-  <app-resto></app-resto>
-
-
-
-  
+</div>

@@ -42,6 +42,16 @@ import { NgxPermissionsService } from "ngx-permissions";
     }
     return username;
   }
+    public getUserId(): string{
+        const helper = new JwtHelperService();
+    const token = sessionStorage.getItem("jwt")
+    let username = "";
+    if (token) {
+          const decodedToken = helper.decodeToken(token);
+      username = decodedToken.userId;
+    }
+    return username;
+  }
   public getPermissions(): string[]{
     
     const helper = new JwtHelperService();

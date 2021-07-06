@@ -68,6 +68,7 @@ public class JWTTokenService implements Clock, TokenService {
             claims.setExpiration(expiresAt.toDate());
         }
         claims.put("user",user.getUsername());
+        claims.put("userId",user.getId());
         claims.put("role",user.getRoles());
 
 

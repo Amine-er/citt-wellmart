@@ -28,7 +28,7 @@ const appRoutes: Routes = [
   { path: 'localisation', component: LocalisationComponent },
   { path: 'logout', component: LogoutComponent },
 
-  { path: 'product', component: ProductComponent },
+  { path: 'products/:id', component: ProductComponent },
 ];
 
 @NgModule({

@@ -2,20 +2,19 @@ package com.citt.wellmart.controller;
 
 import com.citt.wellmart.controller.mappers.ProductMapper;
 import com.citt.wellmart.controller.models.ProductDto;
-import com.citt.wellmart.entities.Category;
-import com.citt.wellmart.entities.ImageModel;
-import com.citt.wellmart.entities.Product;
-import com.citt.wellmart.repositories.CategoryRepository;
-import com.citt.wellmart.repositories.ImageRepository;
-import com.citt.wellmart.repositories.ProductRepository;
+import com.citt.wellmart.entities.*;
+import com.citt.wellmart.entities.security.User;
+import com.citt.wellmart.repositories.*;
 import com.citt.wellmart.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
 
@@ -31,6 +30,8 @@ public class ProductController {
    @Autowired
     private CategoryRepository categoryRepository ;
     @Autowired
+    private UserRepository merchantRepository;
+    @Autowired
     ImageRepository imageRepository;
     @PostMapping
     public Product saveProduct(@RequestBody ProductDto dto) throws Exception {
@@ -40,6 +41,7 @@ public class ProductController {
        Category category = categoryRepository.findById(Long.valueOf(dto.getCategoryId())).get();
        Product product = productMapper.toProduct(dto);
        product.setCategory(category);
+
         return productService.saveProduct(product);
     }
     @PutMapping
@@ -80,5 +82,23 @@ public class ProductController {
         } catch (DataFormatException e) {
         }
         return outputStream.toByteArray();
+    }
+
+    @GetMapping("/categories/{id}")
+    public List<Product> getProductByCategoryId(@PathVariable(name = "id") Long id){
+        List<Product> products = productRepository.findByCategoryId(id);
+        products.stream().forEach(e->{
+            final Optional<ImageModel> retrievedImage = imageRepository.findById(Long.valueOf(e.getImageUrl()));
+            if(retrievedImage.isPresent()){
+                ImageModel img = new ImageModel(retrievedImage.get().getName(), retrievedImage.get().getType(),
+                        decompressBytes(retrievedImage.get().getPicByte()));
+                e.setImageUrl("data:image/jpeg;base64 ");
+                e.setImageModel(img);
+            }
+
+        });
+
+        return    products;
+
     }
 }

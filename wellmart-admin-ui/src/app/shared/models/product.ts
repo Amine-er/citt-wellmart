@@ -6,7 +6,7 @@ export class Product {
     description: string
     price: string
     categoryId: string
-     merchantUserName: string
+     merchantId: string
      category: string
      imageUrl: string
      imageModel: ImageModel;

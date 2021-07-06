@@ -1,5 +1,6 @@
 package com.citt.wellmart.entities;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 

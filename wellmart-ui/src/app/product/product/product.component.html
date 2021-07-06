@@ -3,13 +3,33 @@
 </div>
 
 <div class="container" style="height: 700px">
-  <div class="card" style="width: 18rem">
-    <img src="..." class="card-img-top" alt="..." />
+  <div
+    class="card"
+    style="
+      width: 250px !important;
+      display: inline-block !important;
+      margin-left: 20px !important;
+      height: 300px !important;
+      float: left !important;
+    "
+    *ngFor="let prod of products"
+  >
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
+      <img
+        class="card-img-top"
+        height="108"
+        width="108"
+        src="{{ prod.imageUrl }}"
+        style="height: 120px !important; width: 100% !important"
+      />
+      <h5 class="card-title" style="margin-top: 5px; text-align: center">
+        {{ prod.name }}
+      </h5>
       <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        {{ prod.description }}
+      </p>
+      <p class="card-text">
+        <b>{{ prod.price }} DH</b>
       </p>
       <a href="#" class="btn btn-warning" style="float: right">J'ACHETE</a>
     </div>

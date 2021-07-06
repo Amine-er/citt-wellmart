@@ -115,7 +115,7 @@ export class ProductComponent implements OnInit,AfterViewInit {
        product.price =  form.controls.price.value ;
        product.description =  form.controls.description.value ;
        product.categoryId = form.controls.category.value;
-    product.merchantUserName = this.authenticationervice.getUserName();
+    product.merchantId = this.authenticationervice.getUserId();
     product.imageUrl = this.imageId;
        return product ;
   }

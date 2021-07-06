@@ -5,7 +5,7 @@
 <div class="container" style="height: 500px">
   <div *ngFor="let cat of categories" class="card">
     <div>
-      <img src="{{ cat.imageBase64 }}" />
+      <img [routerLink]="['/products', cat.id]" src="{{ cat.imageBase64 }}" />
     </div>
 
     <h4 class="categ">{{ cat.name }}</h4>

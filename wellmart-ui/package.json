@@ -18,6 +18,8 @@
     "@angular/platform-browser": "~12.0.2",
     "@angular/platform-browser-dynamic": "~12.0.2",
     "@angular/router": "~12.0.2",
+    "@auth0/angular-jwt": "^5.0.2",
+    "angular-jwt": "github:auth0/angular-jwt",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "rxjs": "~6.6.0",

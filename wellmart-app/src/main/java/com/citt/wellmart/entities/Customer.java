@@ -14,13 +14,12 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
-    private String firstName ;
-    private String LastName;
+    private String name ;
     private String email;
-    private String address;
+    private String phone;
     private String password;
 
-    @ManyToOne
+   @ManyToOne
     @JoinColumn(name = "city_id")
     private City city ;
 

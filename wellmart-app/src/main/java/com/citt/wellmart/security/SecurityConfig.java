@@ -41,7 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             new AntPathRequestMatcher("/api/v1/roles"), // TODO to be removed
             new AntPathRequestMatcher("/api/v1/users") ,// TODO to be removed
             new AntPathRequestMatcher("/categories/**"),
-            new AntPathRequestMatcher("/products/**")
+            new AntPathRequestMatcher("/products/**"),
+            new AntPathRequestMatcher("/customers/**")
     );
     private static final RequestMatcher PROTECTED_URLS = new NegatedRequestMatcher(PUBLIC_URLS);
 

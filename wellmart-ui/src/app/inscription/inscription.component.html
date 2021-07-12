@@ -1,49 +1,103 @@
-
 <div class="main">
-
-    <app-inscription-succes></app-inscription-succes>
- <section class="signup">
+  <app-inscription-succes></app-inscription-succes>
+  <section class="signup">
     <div class="containerLogin">
-        <div class="signup-content">
-            <div class="signup-form">
-                <h2 class="form-title">Inscrivez-vous</h2>
-                <form #f="ngForm" (ngSubmit)="sInscrire(f.value)" class="register-form" id="register-form">
-                    <div class="form-group">
-                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="prenom" id="prenom" placeholder="Prénom" required ngModel/>
-                    </div>
-                    <div class="form-group">
-                        <label for="email"><i class="zmdi zmdi-email"></i></label>
-                        <input type="email" name="email" id="email" placeholder="E-mail" required ngModel/>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="tel"><i class="zmdi zmdi-email"></i></label>
-                      <input type="text" name="tel" id="tel" placeholder="Numéro de téléphone" required ngModel/>
-                  </div>
-
-                    <div class="form-group">
-                      <label for="mdp"><i class="zmdi zmdi-lock"></i></label>
-                      <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required ngModel/>
-                  </div>
-
-                    
-                    <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term"><span><span></span></span>En cliquant sur Inscription, vous acceptez <U><font color="#F64D28">nos Termes 
-                          de politique de confidentialité du service</font></U> </label>
-                    </div>
-                    <div class="form-group form-button">
-                        <input type="submit" name="signup" id="signup" class="form-submit" value="Inscription"/>
-                    </div>
-                </form>
+      <div class="signup-content">
+        <div class="signup-form">
+          <h2 class="form-title">Inscrivez-vous</h2>
+          <form
+            (ngSubmit)="onCreateCustomer()"
+            [formGroup]="customerForm"
+            class="register-form"
+            id="register-form"
+          >
+            <div class="form-group">
+              <label for="name"
+                ><i class="zmdi zmdi-account material-icons-name"></i
+              ></label>
+              <input
+                formControlName="prenom"
+                type="text"
+                name="prenom"
+                id="prenom"
+                placeholder="Prénom"
+                required
+                ngModel
+              />
             </div>
-            <div class="signup-image">
-                <figure><img src="assets/login/images/login.jpg" alt="sing up image"></figure>
-                
+            <div class="form-group">
+              <label for="email"><i class="zmdi zmdi-email"></i></label>
+              <input
+                formControlName="email"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="E-mail"
+                required
+                ngModel
+              />
             </div>
+
+            <div class="form-group">
+              <label for="tel"><i class="zmdi zmdi-email"></i></label>
+              <input
+                formControlName="tel"
+                type="text"
+                name="tel"
+                id="tel"
+                placeholder="Numéro de téléphone"
+                required
+                ngModel
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="mdp"><i class="zmdi zmdi-lock"></i></label>
+              <input
+                formControlName="mdp"
+                type="password"
+                name="mdp"
+                id="mdp"
+                placeholder="Mot de passe"
+                required
+                ngModel
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="checkbox"
+                name="agree-term"
+                id="agree-term"
+                class="agree-term"
+              />
+              <label for="agree-term" class="label-agree-term"
+                ><span><span></span></span>En cliquant sur Inscription, vous
+                acceptez
+                <U
+                  ><font color="#F64D28"
+                    >nos Termes de politique de confidentialité du service</font
+                  ></U
+                >
+              </label>
+            </div>
+            <div class="form-group form-button">
+              <input
+                type="submit"
+                name="signup"
+                id="signup"
+                class="form-submit"
+                value="Inscription"
+              />
+            </div>
+          </form>
         </div>
+        <div class="signup-image">
+          <figure>
+            <img src="assets/login/images/login.jpg" alt="sing up image" />
+          </figure>
+        </div>
+      </div>
     </div>
-</section>
-
+  </section>
 </div>

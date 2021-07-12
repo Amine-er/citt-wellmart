@@ -1,62 +1,73 @@
+<nav
+  class="
+    navbar navbar-expand-lg navbar-dark
+    ftco_navbar
+    bg-dark
+    ftco-navbar-light
+  "
+  id="ftco-navbar"
+>
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img class="logo" src="assets/footer/image/wellmart.png"
+    /></a>
 
-	
-		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	    	<a class="navbar-brand" href="index.html">  <img class="logo"src="assets/footer/image/wellmart.png"/></a>
-	    
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="fa fa-bars"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav m-auto">
-	        	<li  class="nav-item"><a routerLink="" class="nav-link" >Accueil</a></li>
-	       
-	       
-	        	
-	        	<li class="nav-item">
-					<a href="#myModal" class="nav-link" data-toggle="modal">Me localiser
-					</a></li>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#ftco-nav"
+      aria-controls="ftco-nav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="fa fa-bars"></span> Menu
+    </button>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item"><a routerLink="" class="nav-link">Accueil</a></li>
 
-			
-			<li class="nav-item" *ngIf="!loginService.isUserLoggedIn()" ><a class="nav-link" routerLink="login" >Connexion / S'inscrire</a></li>
+        <li class="nav-item">
+          <a href="#myModal" class="nav-link" data-toggle="modal"
+            >Me localiser
+          </a>
+        </li>
 
+        <li class="nav-item" *ngIf="!loginService.isUserLoggedIn()">
+          <a class="nav-link" routerLink="login">Connexion / S'inscrire</a>
+        </li>
 
-			  <li class="nav-item">
+        <li class="nav-item">
+          <select name="livraison" class="nav-link-liv">
+            <option value="tech">Livraison à domicile</option>
+            <option value="admin">Livraison à emporter</option>
+          </select>
+        </li>
+        <li class="nav-item" *ngIf="currentUser != ''">
+          <a (click)="logout()" href="#" class="nav-link" data-toggle="modal"
+            >Logout
+          </a>
+        </li>
+        <li
+          style="position: relative; top: 25px"
+          class="nav-item"
+          *ngIf="currentUser != ''"
+        >
+          {{ currentUser }}
+        </li>
+      </ul>
+    </div>
 
-				<select name="livraison" class="nav-link-liv" >
-					<option value="tech">Livraison à domicile</option>
-					<option value="admin">Livraison à emporter</option>
-					
-					</select>
+    <div
+      class="deconnexion"
+      *ngIf="loginService.isUserLoggedIn()"
+      (click)="loginService.logOut()"
+    >
+      <p>Déconnexion</p>
+    </div>
+  </div>
+</nav>
 
+<app-localisation></app-localisation>
 
-			</li>
-
-
-			
-	
-	        </ul>
-	      </div>
-
-
-		  <div class="deconnexion" *ngIf="loginService.isUserLoggedIn()" (click)="loginService.logOut()">
-
-			
-			<p >Déconnexion</p>
-
-		  </div>
-
-		  
-	    </div>
-
-	
-	  </nav>
-
-	  <app-localisation></app-localisation>
-
-	  
-    <!-- END nav -->
-
-	
-
-	
+<!-- END nav -->

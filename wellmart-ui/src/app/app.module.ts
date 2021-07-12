@@ -13,7 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { LocalisationComponent } from './localisation/localisation.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InscriptionSuccesComponent } from './inscription-succes/inscription-succes.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -53,6 +53,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
   ],
   providers: [],

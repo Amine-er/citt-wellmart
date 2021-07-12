@@ -8,6 +8,7 @@ export class MainConfigService {
   private baseUrl: any;
   private ProviderUrlApi = {
     getCategoryUrlPart: '/categories',
+    getLoginUrlPart: '/public/v1/users/login',
   };
 
   constructor() {
@@ -16,5 +17,8 @@ export class MainConfigService {
 
   public getCategoriesUrl(): string {
     return this.baseUrl + this.ProviderUrlApi.getCategoryUrlPart;
+  }
+  public getLoginUrl(): string {
+    return this.baseUrl + this.ProviderUrlApi.getLoginUrlPart;
   }
 }
